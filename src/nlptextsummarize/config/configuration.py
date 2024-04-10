@@ -1,6 +1,6 @@
 from nlptextsummarize.constants import *
 from nlptextsummarize.utils.common import read_yaml, create_directories
-from nlptextsummarize.entity import (DataIngestionConfig)
+from nlptextsummarize.entity import (DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -80,7 +80,7 @@ class ConfigurationManager:
             save_steps = params.save_steps,
             gradient_accumulation_steps = params.gradient_accumulation_steps
         )
-
+        
         return model_trainer_config
     
 
@@ -95,7 +95,6 @@ class ConfigurationManager:
             model_path = config.model_path,
             tokenizer_path = config.tokenizer_path,
             metric_file_name = config.metric_file_name
-           
         )
 
         return model_evaluation_config
